@@ -5,5 +5,8 @@
   "main": "index.js",
   "author": "Derrick Mehaffy <derrickmehaffy@gmail.com>",
   "license": "GPLv3",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "freshdesk-api": "^2.11.1"
+  }
 }
