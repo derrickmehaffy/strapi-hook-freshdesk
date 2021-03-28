@@ -34,7 +34,7 @@ npm install strapi-hook-freshdesk --save
 
 ## Hook config
 
-To activate and configure the hook, you need to create or update the file `./config/hook.js` in your strapi app.
+To activate and configure the hook, you need to create or update the file `./config/hook.js` in your strapi app. For more information please see the [Strapi hooks documentation](https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#hooks). For information about environmental configs and alternative config locations, see the [Strapi environment documentation](https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#environment).
 
 ```js
 module.exports = {
@@ -42,6 +42,9 @@ module.exports = {
     // ...
     freshdesk: {
       enabled: true,
+      // Doesn't work with custom domains, must be a freshdesk subdomain
+      domain: env("FRESHDESK_DOMAIN", "https://example.freshdesk.com"),
+      apiKey: env("FRESHDESK_APIKEY", "yourAPIKey"),
     },
   },
 };
@@ -60,4 +63,4 @@ module.exports = {
 
 ### License
 
-- Copyright (c) 2020-2021 Derrick Mehaffy & Strapi Solutions ([GPLv3 License](LICENSE.md)).
+- Copyright (c) 2020-2021 Derrick Mehaffy & Strapi Solutions ([GPLv3 License](LICENSE)).
