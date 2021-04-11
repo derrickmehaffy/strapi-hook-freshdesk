@@ -2,8 +2,6 @@
   "name": "strapi-hook-freshdesk",
   "version": "0.0.1",
   "description": "A Strapi hook package for interfacing with Freshdesk",
-  "author": "Derrick Mehaffy <derrickmehaffy@gmail.com>",
-  "license": "GPLv3",
   "private": false,
   "directories": {
     "lib": "lib"
@@ -12,5 +10,32 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "freshdesk-api": "^2.11.1"
-  }
+  },
+  "author": {
+    "name": "The Strapi Guru",
+    "url": "https://strapi.guru"
+  },
+  "maintainers": [
+    {
+      "name": "Derrick Mehaffy",
+      "email": "derrickmehaffy@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/derrickmehaffy/strapi-hook-freshdesk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/derrickmehaffy/strapi-hook-freshdesk/issues"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "GPLv3",
+  "keywords": [
+    "strapi",
+    "freshdesk",
+    "hook"
+  ]
 }
