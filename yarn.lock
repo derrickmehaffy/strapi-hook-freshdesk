@@ -134,10 +134,8 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-freshdesk-api@^2.11.1:
+"freshdesk-api@file:../node-freshdesk-api":
   version "2.11.1"
-  resolved "https://registry.yarnpkg.com/freshdesk-api/-/freshdesk-api-2.11.1.tgz#6f6c345bfc8e5621885aefca8d1a1857e96d84b9"
-  integrity sha512-VjkoivDSns1hQsYcSHAI8SVIjpuoUPuuQaaFdTodu2sw3IxuwsEdqS6RFef25whFnB6rLl285bEl6snOMM5s4w==
   dependencies:
     bluebird "^3.7.2"
     debug "^4.1.1"
