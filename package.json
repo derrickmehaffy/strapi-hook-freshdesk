@@ -7,6 +7,9 @@
     "lib": "lib"
   },
   "main": "lib",
+  "scripts": {
+    "test": "echo no test specified"
+  },
   "dependencies": {
     "bluebird": "^3.7.2",
     "freshdesk-api": "^2.11.1"
