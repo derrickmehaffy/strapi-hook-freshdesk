@@ -1,6 +1,6 @@
 {
   "name": "strapi-hook-freshdesk",
-  "version": "0.0.2-next",
+  "version": "0.0.2-beta",
   "description": "A Strapi hook package for interfacing with Freshdesk",
   "private": false,
   "directories": {
