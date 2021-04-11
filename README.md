@@ -45,6 +45,7 @@ module.exports = ({ env }) => ({
       // Doesn't work with custom domains, must be a freshdesk subdomain
       domain: env("FRESHDESK_DOMAIN", "https://example.freshdesk.com"),
       apiKey: env("FRESHDESK_APIKEY", "yourAPIKey"),
+      debug: false,
     },
   },
 });
