@@ -72,6 +72,10 @@ let companyData = await company.findOne('someCompanyID')
 
 **Core Route -** `strapi.services.freshdesk.agent`
 
+Agents in Freshdesk can be “full-time” or “occasional”. Full time agents are those in your core support team who will log in to your help desk every day. Occasional agents are those who would only need to log in a few times every month, such as the CEO or field staff.
+
+> :warning: **All Agent APIs require admin privileges on the API Key.**
+
 - `agent.find(query, fetchAll)`
   * query: Required Object => Used to query for specific agents [Read More](https://developer.freshdesk.com/api/#list_all_agents)
   * fetchAll: Optional Boolean => Using paging to fetch all agents
@@ -85,6 +89,10 @@ let companyData = await company.findOne('someCompanyID')
 
 ### Companies
 
+**Core Route -** `strapi.services.freshdesk.agent`
+
+When multiple contacts from the same company contact you, it is better to group them into a company. This way, the tickets of the contacts can be mapped to the company. This also enables you to find an alternative person to call/email when a contact is unavailable.
+
 - `company.create(data)`
 - `company.find(page)`
 - `company.findOne(id)`
@@ -95,6 +103,10 @@ let companyData = await company.findOne('someCompanyID')
 - `company.findFields()`
 
 ### Contacts
+
+**Core Route -** `strapi.services.freshdesk.contact`
+
+A contact is a customer or a potential customer who has raised a support ticket through any channel.
 
 - `contact.create(data)`
 - `contact.find(filter)`
@@ -107,20 +119,38 @@ let companyData = await company.findOne('someCompanyID')
 
 ### Conversations
 
+**Core Route -** `strapi.services.freshdesk.conversation`
+
+Conversations consist of replies as well as public and private notes added to a ticket. Notes are non-invasive ways of sharing updates about a ticket amongst agents and customers. Private notes are for collaboration between agents and are not visible to the customer. Public notes are visible to, and can be created by, both customers and agents.
+
 - `conversation.createReply(ticketId, reply)`
 - `conversation.createNote(ticketId, note)`
 - `conversation.update(id, data)`
 - `conversation.delete(id)`
 ### Roles
 
+**Core Route -** `strapi.services.freshdesk.role`
+
+Roles allow you to create special privileges and profiles specifying what an agent can see and do within your Freshdesk support portal. These roles help you classify your team into different sections and assign them capabilities so that they get to do what they need to on their helpdesk, without getting in each other's way. They are especially useful for larger teams where there are different groups of employees trying to handle different things.
+
+> :warning: **All Role APIs require admin privileges on the API Key.**
+
 - `role.find()`
 - `role.findOne(id)`
 
 ### Settings
 
+**Core Route -** `strapi.services.freshdesk.settings`
+
+Settings are configured through the Admin page of the Freshdesk web app.
+
 - `settings.get()`
 
 ### Tickets
+
+**Core Route -** `strapi.services.freshdesk.ticket`
+
+A ticket is an issue raised by a requester that need to be solved. It could be an urgent, high-priority problem exposing a security vulnerability. It could also be low priority question about a free T-shirt. Tickets are assigned to agents based on the agent's expertise and on the subject of the ticket.
 
 - `ticket.create(data)`
 - `ticket.find(filter)`
@@ -134,6 +164,10 @@ let companyData = await company.findOne('someCompanyID')
 - `ticket.findTime(id)`
 
 ### Time
+
+**Core Route -** `strapi.services.freshdesk.time`
+
+The time tracking feature in Freshdesk lets you track the time spent by each agent on resolving tickets and thereby enables you to gain visibility on the helpdesk's overall performance. Freshdesk lets agents track the time they spend on a ticket with automatic start and stop timers. Agents can also manually log the time they have spent, and detail their activities during this period by adding comments to the time entries.
 
 - `time.create(ticketID, data)`
 - `time.find(filter)`
