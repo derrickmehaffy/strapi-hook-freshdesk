@@ -11,6 +11,8 @@
 
 This hook allows you to use [Freshdesk](https://www.freshdesk.com/) as a service in [Strapi](https://github.com/strapi/strapi) `strapi.services.freshdesk`. Freshdesk is a ticket management software for supporting customers and clients, it allows you to create and manage companies, contacts, and tickets as well as having a customer portal where you can write support articles, FAQs, and run a forum for your customers.
 
+This hook is using the `freshdesk-api` package, for additional information please see their package [documentation](https://www.npmjs.com/package/freshdesk-api). This hook does use [bluebird](https://www.npmjs.com/package/bluebird) to switch from callbacks to promise based functions.
+
 **Supported Strapi versions:**
 
 - v3.5.x (recommended)
@@ -28,10 +30,6 @@ yarn add strapi-hook-freshdesk
 npm install strapi-hook-freshdesk --save
 ```
 
-## Usage
-
-**WIP**
-
 ## Hook config
 
 To activate and configure the hook, you need to create or update the file `./config/hook.js` in your strapi app. For more information please see the [Strapi hooks documentation](https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#hooks). For information about environmental configs and alternative config locations, see the [Strapi environment documentation](https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#environment).
@@ -45,11 +43,115 @@ module.exports = ({ env }) => ({
       // Doesn't work with custom domains, must be a freshdesk subdomain
       domain: env("FRESHDESK_DOMAIN", "https://example.freshdesk.com"),
       apiKey: env("FRESHDESK_APIKEY", "yourAPIKey"),
-      debug: false,
     },
   },
 });
 ```
+## Usage
+
+**Requirements**
+
+1. Have an existing Freshdesk instance
+2. Have an API key (You can fetch yours from your Agent profile)
+
+After you have configured your hook, you can access the hook functions via:
+
+`strapi.services.freshdesk`
+
+For some more advanced usage other than the examples below please see [The Strapi Guru Documentation]().
+
+The recommended way to pull in various functions for usage is with the following example:
+
+```js
+const { contact, company, ticket, time } = strapi.services.freshdesk
+
+let companyData = await company.findOne('someCompanyID')
+```
+
+### Agents
+
+**Core Route -** `strapi.services.freshdesk.agent`
+
+- `agent.find(query, fetchAll)`
+  * query: Required Object => Used to query for specific agents [Read More](https://developer.freshdesk.com/api/#list_all_agents)
+  * fetchAll: Optional Boolean => Using paging to fetch all agents
+- `agent.findOne(id)`
+  * id: Required Integer => Agent's ID
+- `agent.update(id, data)`
+  * id: Required Integer => Agent's ID
+  * data: Required Object => Fields to update on the agent [Read More](https://developer.freshdesk.com/api/#update_agent)
+- `agent.delete(id)`
+  * id: Required Integer => Agent's ID
+
+### Companies
+
+- `company.create(data)`
+- `company.find(page)`
+- `company.findOne(id)`
+- `company.update(id, data)`
+- `company.delete(id)`
+- `company.search(name)`
+- `company.filter(query)`
+- `company.findFields()`
+
+### Contacts
+
+- `contact.create(data)`
+- `contact.find(filter)`
+- `contact.findOne(id)`
+- `contact.update(id, data)`
+- `contact.delete(id)`
+- `contact.search(query)`
+- `contact.findFields()`
+- `contact.makeAgent(id)`
+
+### Conversations
+
+- `conversation.createReply(ticketId, reply)`
+- `conversation.createNote(ticketId, note)`
+- `conversation.update(id, data)`
+- `conversation.delete(id)`
+### Roles
+
+- `role.find()`
+- `role.findOne(id)`
+
+### Settings
+
+- `settings.get()`
+
+### Tickets
+
+- `ticket.create(data)`
+- `ticket.find(filter)`
+- `ticket.findOne(id)`
+- `ticket.update(id, data)`
+- `ticket.delete(id)`
+- `ticket.restore(id)`
+- `ticket.search(query, page, fetchAll)`
+- `ticket.findFields()`
+- `ticket.findConversation(id)`
+- `ticket.findTime(id)`
+
+### Time
+
+- `time.create(ticketID, data)`
+- `time.find(filter)`
+- `time.toggle(entryID)`
+- `time.update(id, data)`
+- `time.delete(id)`
+
+### Other (Client)
+
+The client API is used to bypass this hook's custom logic and use the [freshdesk-api](https://www.npmjs.com/package/freshdesk-api) API functions.
+
+Since the current `freshdesk-api` documentation does not cover it, if you wish to use promise based functions you just need to add `Async` to the end of the function name.
+
+**Callback Based:** `strapi.services.freshdesk.client.getTicket(id, callback)`
+
+**Promise Based:** `strapi.services.freshdesk.client.getTicketAsync(id, callback)`
+
+At the time of writing, we have currently implemented all of the functions available in `freshdesk-api`.
 
 ### Support
 
