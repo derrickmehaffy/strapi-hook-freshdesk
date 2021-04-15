@@ -58,6 +58,10 @@ After you have configured your hook, you can access the hook functions via:
 
 `strapi.services.freshdesk`
 
+<!---
+TODO: Add Documentation Link
+-->
+
 For some more advanced usage other than the examples below please see [The Strapi Guru Documentation]().
 
 The recommended way to pull in various functions for usage is with the following example:
@@ -93,6 +97,10 @@ Agents in Freshdesk can be “full-time” or “occasional”. Full time agents
 
 When multiple contacts from the same company contact you, it is better to group them into a company. This way, the tickets of the contacts can be mapped to the company. This also enables you to find an alternative person to call/email when a contact is unavailable.
 
+<!---
+TODO: Document APIs
+-->
+
 - `company.create(data)`
 - `company.find(page)`
 - `company.findOne(id)`
@@ -107,6 +115,10 @@ When multiple contacts from the same company contact you, it is better to group 
 **Core Route -** `strapi.services.freshdesk.contact`
 
 A contact is a customer or a potential customer who has raised a support ticket through any channel.
+
+<!---
+TODO: Document APIs
+-->
 
 - `contact.create(data)`
 - `contact.find(filter)`
@@ -123,6 +135,10 @@ A contact is a customer or a potential customer who has raised a support ticket 
 
 Conversations consist of replies as well as public and private notes added to a ticket. Notes are non-invasive ways of sharing updates about a ticket amongst agents and customers. Private notes are for collaboration between agents and are not visible to the customer. Public notes are visible to, and can be created by, both customers and agents.
 
+<!---
+TODO: Document APIs
+-->
+
 - `conversation.createReply(ticketId, reply)`
 - `conversation.createNote(ticketId, note)`
 - `conversation.update(id, data)`
@@ -135,6 +151,10 @@ Roles allow you to create special privileges and profiles specifying what an age
 
 > :warning: **All Role APIs require admin privileges on the API Key.**
 
+<!---
+TODO: Document APIs
+-->
+
 - `role.find()`
 - `role.findOne(id)`
 
@@ -144,6 +164,10 @@ Roles allow you to create special privileges and profiles specifying what an age
 
 Settings are configured through the Admin page of the Freshdesk web app.
 
+<!---
+TODO: Document API
+-->
+
 - `settings.get()`
 
 ### Tickets
@@ -151,6 +175,10 @@ Settings are configured through the Admin page of the Freshdesk web app.
 **Core Route -** `strapi.services.freshdesk.ticket`
 
 A ticket is an issue raised by a requester that need to be solved. It could be an urgent, high-priority problem exposing a security vulnerability. It could also be low priority question about a free T-shirt. Tickets are assigned to agents based on the agent's expertise and on the subject of the ticket.
+
+<!---
+TODO: Document APIs
+-->
 
 - `ticket.create(data)`
 - `ticket.find(filter)`
@@ -168,6 +196,10 @@ A ticket is an issue raised by a requester that need to be solved. It could be a
 **Core Route -** `strapi.services.freshdesk.time`
 
 The time tracking feature in Freshdesk lets you track the time spent by each agent on resolving tickets and thereby enables you to gain visibility on the helpdesk's overall performance. Freshdesk lets agents track the time they spend on a ticket with automatic start and stop timers. Agents can also manually log the time they have spent, and detail their activities during this period by adding comments to the time entries.
+
+<!---
+TODO: Document APIs
+-->
 
 - `time.create(ticketID, data)`
 - `time.find(filter)`
