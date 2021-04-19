@@ -134,15 +134,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-freshdesk-api@derrickmehaffy/strapi-hook-freshdesk#freshdesk-api/PR149:
-  version "0.0.1"
-  resolved "https://codeload.github.com/derrickmehaffy/strapi-hook-freshdesk/tar.gz/a516fb465a5784308cb35533bfdbcf3ff6614892"
-  dependencies:
-    bluebird "^3.7.2"
-    freshdesk-api "file:../../../../../home/dmehaffy/.cache/yarn/v6/npm-freshdesk-api-0.0.1-a516fb465a5784308cb35533bfdbcf3ff6614892/node_modules/node-freshdesk-api"
-
-"freshdesk-api@file:../node-freshdesk-api":
-  version "2.11.1"
+freshdesk-api@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/freshdesk-api/-/freshdesk-api-2.12.0.tgz#f01181b0f4d7331727cd44b4eaa52377a0669392"
+  integrity sha512-SJz1fPnQYAEJA8iN37LYrpsWBqL9IVKoAmoFLJXjRo/0qB6zbdrXONMkUn/jeEYvF4UhGoXWsfKYub11qSFD7g==
   dependencies:
     bluebird "^3.7.2"
     debug "^4.1.1"
